@@ -2,6 +2,7 @@ import React from "react";
 import { HEADER } from "../constants/data";
 import { Logo } from "../constants/icon";
 import { MagneticField } from "../animations/magneticField";
+import { TextFlipper } from "../animations/TextFlipper";
 
 function Header() {
   return (
@@ -17,7 +18,7 @@ function Header() {
         </MagneticField>
       </div>
       <div className="fixed right-[4vw] top-[8vh]">
-        <ul className="flex flex-col items-end justify-center gap-1 uppercase">
+        <ul className="flex flex-col items-end justify-center gap-3 uppercase">
           {HEADER.links.map(({ href, label }, index) => {
             return (
               <li>
@@ -25,7 +26,7 @@ function Header() {
                   href={href}
                   className="leading-none"
                 >
-                  {label}
+                  <TextFlipper>{label}</TextFlipper>
                 </a>
               </li>
             );
