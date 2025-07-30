@@ -22,3 +22,5 @@ If you are developing a production application, we recommend using TypeScript wi
 => { npm i }
 
 -> open the link that will show up in the terminal
+
+-> audio features added

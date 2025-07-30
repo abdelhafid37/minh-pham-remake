@@ -14,7 +14,7 @@ function Footer() {
   return (
     <>
       <footer className="fixed w-full mix-blend-difference">
-        <div className="fixed left-20 bottom-24">
+        <div className="fixed left-[4vw] bottom-[11vh]">
           <ul className="flex flex-col items-center justify-center gap-8">
             {FOOTER.socials.map(({ Icon, href }, index) => {
               if (Icon) {
@@ -32,14 +32,14 @@ function Footer() {
             })}
           </ul>
         </div>
-        <div className="fixed right-20 bottom-24 -rotate-90 translate-x-full origin-bottom-left">
+        <div className="fixed right-[4vw] bottom-[11vh] -rotate-90 translate-x-full origin-bottom-left">
           <button
             type="button"
             className="uppercase flex items-center justify-center gap-1"
             onClick={() => setIsPlay(prev => !prev)}
           >
             <span>{FOOTER.sound.button.label}</span>
-            <span className="relative">
+            <span className="relative overflow-y-clip">
               <span
                 className="block translate-y-0"
                 ref={playRef}
