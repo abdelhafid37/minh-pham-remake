@@ -15,14 +15,14 @@ export const soundController = (state, playRef, pauseRef, audioRef) => {
     if (!play || !pause || !audio) return;
 
     const tl = gsap.timeline();
+    audio.volume = 0;
 
     if (state) {
-      gsap.killTweensOf(play, pause, sound);
-
       gsap.to(sound, {
         volume: 1,
         duration: 1,
         ease: "power2.inOut",
+
         onStart: () => audio.play(),
         onUpdate: () => (audio.volume = sound.volume),
       });
@@ -31,12 +31,11 @@ export const soundController = (state, playRef, pauseRef, audioRef) => {
         .to(pause, { y: "-100%", duration: duration }, "<")
         .to(play, { y: 0, duration: duration }, "<");
     } else {
-      gsap.killTweensOf(play, pause, sound);
-
       gsap.to(sound, {
         volume: 0,
         duration: 1,
         ease: "power2.inOut",
+
         onUpdate: () => (audio.volume = sound.volume),
         onComplete: () => audio.pause(),
       });
@@ -46,6 +45,6 @@ export const soundController = (state, playRef, pauseRef, audioRef) => {
         .to(pause, { y: 0, duration: duration }, "<");
     }
 
-    return () => gsap.killTweensOf(play, pause);
+    return () => gsap.killTweensOf(play, pause, sound);
   }, [state]);
 };

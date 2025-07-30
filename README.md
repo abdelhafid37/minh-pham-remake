@@ -24,3 +24,4 @@ If you are developing a production application, we recommend using TypeScript wi
 -> open the link that will show up in the terminal
 
 -> audio features added
+-> header and footer created

@@ -1,9 +1,10 @@
 import React, { useRef, useState } from "react";
 import { FOOTER } from "../constants/data";
 import { soundController } from "../animations/soundController";
+import { MagneticField } from "../animations/magneticField";
 
 function Footer() {
-  const [isPlay, setIsPlay] = useState(true);
+  const [isPlay, setIsPlay] = useState(false);
   const audioRef = useRef(null);
 
   const playRef = useRef(null);
@@ -20,12 +21,14 @@ function Footer() {
               if (Icon) {
                 return (
                   <li key={index}>
-                    <a
-                      href={href}
-                      className="flex size-6"
-                    >
-                      <Icon />
-                    </a>
+                    <MagneticField strength={1.75}>
+                      <a
+                        href={href}
+                        className="flex size-6"
+                      >
+                        <Icon />
+                      </a>
+                    </MagneticField>
                   </li>
                 );
               }
@@ -61,7 +64,7 @@ function Footer() {
         src={FOOTER.sound.audio}
         autoPlay
         loop
-        muted
+        // muted
       ></audio>
     </>
   );
