@@ -8,14 +8,12 @@ import Loader from "./components/Loader";
 function App() {
   return (
     <ReactLenis root>
-      <Loader />
+      {/* <Loader /> */}
       <Header />
-
-      <main>
+      <main className="relative">
         <Base />
         <Mask />
       </main>
-
       <Footer />
     </ReactLenis>
   );

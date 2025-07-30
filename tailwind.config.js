@@ -11,6 +11,14 @@ export default {
         "ui-gray-dark": "rgb(77, 77, 77)",
         "ui-gray-light": "rgba(184, 172, 153, 0.5)",
       },
+      fontFamily: {
+        "ui-avantgarde-header": ["avantgarde-header", "Courier", "monospace"],
+        "ui-avantgarde-text": ["avantgarde-text", "Courier", "monospace"],
+        "ui-nunito": ["nunito", "monospace"],
+      },
+      letterSpacing: {
+        "ui-text": ".5em",
+      },
     },
   },
   plugins: [],

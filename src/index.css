@@ -1,3 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face{
+  font-family: "avantgarde-header";
+  src: url("/public/fonts/avantgarde/AVGARDD_2.woff");
+}
+@font-face{
+  font-family: "avantgarde-text";
+  src: url("/public/fonts/avantgarde/AVGARDN_2.woff");
+}
+/* *{border: 1px solid red;} */
+@font-face{
+  font-family: "nunito";
+  src: url("/public/fonts/Nunito/Nunito-VariableFont_wght.ttf");
+}
+html{
+  font-size: .92vw;
+}
+.loading-svg{
+  --po: 0;
+  stroke-dashoffset: var(--po);
+  stroke-dasharray: 829;
+
+}
+@layer base{
+  body{
+    @apply bg-ui-black text-ui-accent font-ui-nunito
+  }
+}
+@layer utilities{
+  .full-cover{
+    @apply w-full h-full object-cover
+  }
+}
