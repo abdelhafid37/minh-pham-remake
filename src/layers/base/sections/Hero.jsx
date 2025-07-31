@@ -6,34 +6,47 @@ import gsap from "gsap";
 
 gsap.registerPlugin(SplitText);
 
-function Hero() {
+function Hero({ isStarted }) {
   const textRef = useRef(null);
+  const tlRef = useRef();
 
   useGSAP(() => {
     const text = textRef.current;
+
     if (!text) return;
+
+    tlRef.current = gsap.timeline({ paused: false });
 
     const level1 = new SplitText(text, { type: "words" });
     gsap.set(level1.words, {
       display: "block",
-      overflow: "hidden",
-      marginBottom: "0.75rem",
-      lineHeight: 0.75,
+      overflowY: "clip",
+      marginBottom: "0.4rem",
+      lineHeight: 0.83,
     });
 
     level1.words.forEach(word => {
       const level2 = new SplitText(word, { type: "chars" });
       gsap.set(level2.chars, { y: "130%" });
-      gsap.to(level2.chars, {
-        y: 0,
-        duration: 0.75,
-        stagger: 0.03,
-        ease: "power2.inOut",
-      });
+
+      tlRef.current.to(
+        level2.chars,
+        {
+          y: 0,
+          duration: 1,
+          stagger: 0.05,
+          ease: "power3.inOut",
+        },
+        "<",
+      );
     });
 
     return () => gsap.killTweensOf(level1.words);
   }, []);
+
+  useGSAP(() => {
+    if (isStarted) tlRef.current.play();
+  }, [isStarted]);
 
   return (
     <section className="relative min-h-screen w-full grid place-items-center">

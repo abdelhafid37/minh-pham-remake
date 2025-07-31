@@ -1,5 +1,5 @@
 import loadingGif from "../assets/images/logo.gif";
-import mp3 from "../assets/mp3/audiosite.mp3";
+import mp3 from "../assets/mp3/Clara Mae - Not Sad Anymore.mp3";
 import { Dribbble, Instagram, Linkedin, Youtube } from "./icon";
 import mp4 from "../assets/videos/hero.mp4";
 

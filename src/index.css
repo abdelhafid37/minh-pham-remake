@@ -1,16 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* *{border: 1px solid red;} */
 
 @font-face{
-  font-family: "avantgarde-bold";
-  src: url("/public/fonts/avantgarde/AVGARDD_2.woff");
-}
-@font-face{
   font-family: "avantgarde";
-  src: url("/public/fonts/avantgarde/AVGARDN_2.woff");
+  src: url("/public/fonts/ITC Avant Garde Gothic/ITC Avant Garde Gothic Medium.otf");
 }
-/* *{border: 1px solid red;} */
 @font-face{
   font-family: "nunito";
   src: url("/public/fonts/Nunito/Nunito-VariableFont_wght.ttf");
@@ -22,14 +18,16 @@ html{
   --po: 0;
   stroke-dashoffset: var(--po);
   stroke-dasharray: 829;
-
+}
+strong{
+  font-weight: inherit
 }
 @layer base{
   body{
-    @apply bg-ui-black text-ui-accent font-ui-nunito
+    @apply bg-ui-black text-ui-accent font-ui-nunito select-none
   }
   strong{
-    @apply text-ui-red font-normal
+    @apply text-ui-red ;
   }
 }
 @layer utilities{
@@ -37,10 +35,10 @@ html{
     @apply w-full h-full object-cover
   }
   .display-title{
-    @apply tracking-ui-display-title font-ui-avantgarde-bold text-center uppercase mb-6
+    @apply tracking-ui-display-title font-ui-avantgarde text-center uppercase mb-6
   }
   .display-text{
-    @apply tracking-ui-display-text font-ui-avantgarde-bold text-[9.2rem] leading-ui-display-text uppercase text-center
+    @apply tracking-ui-display-text font-ui-avantgarde font-semibold text-[9rem] leading-ui-display-text uppercase text-center
   }
   
 }

@@ -12,14 +12,13 @@ export default {
         "ui-gray-light": "rgba(184, 172, 153, 0.5)",
       },
       fontFamily: {
-        "ui-avantgarde-bold": ["avantgarde-bold", "Courier", "monospace"],
         "ui-avantgarde": ["avantgarde", "Courier", "monospace"],
         "ui-nunito": ["nunito", "monospace"],
       },
       letterSpacing: {
         "ui-text": ".5em",
         "ui-display-title": ".5em",
-        "ui-display-text": "-.05em",
+        "ui-display-text": "-.0em",
       },
       lineHeight: {
         "ui-display-text": "84%",

@@ -3,7 +3,7 @@ import { LOADER } from "../constants/data";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
-function Loader() {
+function Loader({ onStart }) {
   const loaderRef = useRef(null);
   const wrapperRef = useRef(null);
 
@@ -23,6 +23,7 @@ function Loader() {
     const progressContainer = progressContainerRef.current;
 
     const tl = gsap.timeline();
+
     tl.from(svg, {
       duration: 1,
       ease: "expo.inOut",
@@ -37,7 +38,7 @@ function Loader() {
       ease: "expo.inOut",
       "--po": `-=${max}`,
       onComplete: () => {
-        tl.to(gif, { y: "-60px" })
+        tl.to(gif, { y: "-40px" })
           .to(button, { opacity: 1, y: "-40px", pointerEvents: "auto" }, "<")
           .to(progressContainer, { opacity: 0 }, "<")
           .to(svg, { opacity: 0 }, "<");
@@ -52,11 +53,17 @@ function Loader() {
       gsap.to(loader, {
         autoAlpha: 0,
         zIndex: -999,
-        onComplete: () => (document.body.style.overflow = "auto"),
+        onComplete: () => {
+          document.body.style.overflow = "auto";
+        },
       });
     }
   }, [enter]);
 
+  const init = () => {
+    setEnter(true);
+    onStart();
+  };
   return (
     <div
       ref={loaderRef}
@@ -95,7 +102,7 @@ function Loader() {
         <button
           ref={buttonRef}
           type="button"
-          onClick={() => setEnter(true)}
+          onClick={init}
           className="mx-auto flex px-16 py-4 leading-none border border-ui-accent rounded-full font-ui-avantgarde-header uppercase tracking-ui-text text-sm cursor-pointer hover:bg-ui-accent hover:text-black transition-colors duration-300 absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-0 opacity-0 pointer-events-none"
         >
           {LOADER.button}

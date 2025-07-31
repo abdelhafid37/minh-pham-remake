@@ -1,10 +1,10 @@
 import React from "react";
 import Hero from "./sections/Hero";
 
-function Base() {
+function Base({ isStarted }) {
   return (
     <div className="w-full">
-      <Hero />
+      <Hero isStarted={isStarted} />
     </div>
   );
 }
