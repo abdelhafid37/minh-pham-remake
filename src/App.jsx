@@ -12,7 +12,7 @@ function App() {
       <Header />
       <main className="relative">
         <Base />
-        <Mask />
+        {/* <Mask /> */}
       </main>
       <Footer />
     </ReactLenis>

@@ -14,7 +14,7 @@ function Footer() {
 
   return (
     <>
-      <footer className="fixed w-full mix-blend-difference">
+      <footer className="fixed w-full mix-blend-difference z-50">
         <div className="fixed left-[4vw] bottom-[11vh]">
           <ul className="flex flex-col items-center justify-center gap-8">
             {FOOTER.socials.map(({ Icon, href }, index) => {

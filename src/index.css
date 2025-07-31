@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 @font-face{
-  font-family: "avantgarde-header";
+  font-family: "avantgarde-bold";
   src: url("/public/fonts/avantgarde/AVGARDD_2.woff");
 }
 @font-face{
-  font-family: "avantgarde-text";
+  font-family: "avantgarde";
   src: url("/public/fonts/avantgarde/AVGARDN_2.woff");
 }
 /* *{border: 1px solid red;} */
@@ -28,9 +28,19 @@ html{
   body{
     @apply bg-ui-black text-ui-accent font-ui-nunito
   }
+  strong{
+    @apply text-ui-red font-normal
+  }
 }
 @layer utilities{
   .full-cover{
     @apply w-full h-full object-cover
   }
+  .display-title{
+    @apply tracking-ui-display-title font-ui-avantgarde-bold text-center uppercase mb-6
+  }
+  .display-text{
+    @apply tracking-ui-display-text font-ui-avantgarde-bold text-[9.2rem] leading-ui-display-text uppercase text-center
+  }
+  
 }

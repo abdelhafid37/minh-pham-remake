@@ -6,7 +6,7 @@ import { TextFlipper } from "../animations/TextFlipper";
 
 function Header() {
   return (
-    <header className="fixed w-full mix-blend-difference">
+    <header className="fixed w-full mix-blend-difference z-50">
       <div className="fixed left-[4vw] top-[8vh]">
         <MagneticField>
           <a
@@ -21,7 +21,7 @@ function Header() {
         <ul className="flex flex-col items-end justify-center gap-3 uppercase">
           {HEADER.links.map(({ href, label }, index) => {
             return (
-              <li>
+              <li key={index}>
                 <a
                   href={href}
                   className="leading-none"

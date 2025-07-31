@@ -1,6 +1,7 @@
 import loadingGif from "../assets/images/logo.gif";
 import mp3 from "../assets/mp3/audiosite.mp3";
 import { Dribbble, Instagram, Linkedin, Youtube } from "./icon";
+import mp4 from "../assets/videos/hero.mp4";
 
 export const LOADER = {
   gif: loadingGif,
@@ -40,5 +41,16 @@ export const FOOTER = {
       pause: "Off",
     },
     audio: mp3,
+  },
+};
+export const HERO = {
+  video: mp4,
+  base: {
+    title: "Minh Pham",
+    text: "Making Good Shit Since 2009",
+  },
+  mask: {
+    title: "Minh Pham",
+    text: "Hiding Bad Shit Since 2009",
   },
 };
