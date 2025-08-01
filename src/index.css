@@ -27,10 +27,18 @@ html {
 strong {
   font-weight: inherit;
 }
+.item-clip-mask,
 .line-clip-mask {
-  --size: 0%;
+  --size: 100%;
   clip-path: inset(0 var(--size) 0 0);
-  will-change: clip-path
+  will-change: clip-path;
+}
+.item-clip-path .clip-path-mask {
+  clip-path: inset(50% 0 50% 0);
+  will-change: clip-path;
+}
+.item-clip-path.is-hover .clip-path-mask {
+  clip-path: inset(0 0 0 0);
 }
 @layer base {
   body {
@@ -54,13 +62,13 @@ strong {
     @apply py-ui-padding;
   }
   .wrapper {
-    @apply ml-ui-margin;
+    @apply ml-ui-margin px-ui-gutter;
   }
   .title {
     @apply tracking-ui-text pb-5 uppercase text-sm font-ui-avantgarde font-normal;
   }
   .text {
-    @apply leading-ui-text text-ui-text font-ui-avantgarde;
+    @apply text-ui-text font-ui-avantgarde leading-ui-text;
   }
   .item-title {
     @apply text-ui-item-title leading-ui-display-text font-ui-avantgarde uppercase tracking-ui-display-text pr-2;
@@ -68,4 +76,17 @@ strong {
   .divider {
     @apply divide-y divide-ui-gray-dark/40 border-y border-ui-gray-dark/40;
   }
+  .item-clip-container {
+    @apply relative w-fit ;
+  }
+  .item-clip-mask {
+    @apply px-0.5;
+  }
+  .item-clip-opacity {
+    @apply opacity-20 absolute left-0 top-0 px-0.5;
+  }
+  .clip-path-mask {
+    @apply bg-ui-red !text-ui-black transition-[clip-path] duration-[400ms] z-[2] relative pointer-events-none;
+  }
+  
 }

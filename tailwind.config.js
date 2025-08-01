@@ -23,13 +23,14 @@ export default {
       },
       lineHeight: {
         "ui-display-text": "84%",
-        "ui-text": "105%",
+        "ui-text": "119%",
       },
       margin: {
         "ui-margin": "16.6666667%",
       },
       padding: {
         "ui-padding": "28.7vh",
+        "ui-gutter": "0.625rem",
       },
       fontSize: {
         "ui-display-text": "8.3rem",

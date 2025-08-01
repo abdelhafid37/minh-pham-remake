@@ -60,7 +60,7 @@ function Hero({ isStarted }) {
   return (
     <section
       ref={videoContainerRef}
-      className="relative w-full overflow-hidden hidden"
+      className="relative w-full overflow-hidden"
     >
       <div
         ref={videoWrapperRef}

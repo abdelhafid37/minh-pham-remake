@@ -7,9 +7,9 @@ export const useClipText = lines => {
   lines.forEach(line => {
     ScrollTrigger.create({
       trigger: line,
-      start: "top bottom",
+      start: "top 80%",
       end: "center center",
-      markers: true,
+      // markers: true,
       onUpdate: self => {
         const value = 100 - self.progress * 100;
         line.style.cssText = `--size: ${value}%`;
