@@ -55,6 +55,33 @@ export const HERO = {
   },
 };
 export const ABOUT = {
-  title: "About me",
-  text: "I’m a selectively skilled product designer with strong focus on producing high quality & impactful digital experience.",
+  about: {
+    base: {
+      title: "About me",
+      text: "I’m a selectively skilled product designer with strong focus on producing high quality & impactful digital experience.",
+    },
+    mask: {
+      title: "About me",
+      text: "A visual designer - with skills that haven't been replaced by A.I (yet) - making good shit only if the paycheck is equaly good.",
+    },
+  },
+  whatIDo: {
+    title: "What I do",
+    items: [
+      { title: "3d", text: "I can produce anything that my 16” laptop can render" },
+      {
+        title: "Visual",
+        text: "I search the internet for visual references and then combine them to create my own work.",
+      },
+      {
+        title: "Motion",
+        text: "I use fancy motion that makes my design more interesting that it actually is",
+      },
+      {
+        title: "Product",
+        text: "I utilize common design best practices, test, and re-iterate until it works (hopefully).",
+      },
+      { title: "Tutorial", text: "I thought I’d make millions of $ from Youtube but I didn’t" },
+    ],
+  },
 };

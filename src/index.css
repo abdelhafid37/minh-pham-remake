@@ -27,6 +27,11 @@ html {
 strong {
   font-weight: inherit;
 }
+.line-clip-mask {
+  --size: 0%;
+  clip-path: inset(0 var(--size) 0 0);
+  will-change: clip-path
+}
 @layer base {
   body {
     @apply bg-ui-black text-ui-accent font-ui-nunito select-none;
@@ -45,16 +50,22 @@ strong {
   .display-text {
     @apply tracking-ui-display-text font-ui-avantgarde font-semibold text-ui-display-text leading-ui-display-text uppercase text-center;
   }
-  .section{
-    @apply py-ui-padding
+  .section {
+    @apply py-ui-padding;
   }
-  .wrapper{
-    @apply mx-ui-margin
+  .wrapper {
+    @apply ml-ui-margin;
   }
-  .title{
-    @apply tracking-ui-text pb-5 uppercase text-sm font-ui-avantgarde
+  .title {
+    @apply tracking-ui-text pb-5 uppercase text-sm font-ui-avantgarde font-normal;
   }
-  .text{
-    @apply leading-ui-text text-ui-text font-ui-avantgarde
+  .text {
+    @apply leading-ui-text text-ui-text font-ui-avantgarde;
+  }
+  .item-title {
+    @apply text-ui-item-title leading-ui-display-text font-ui-avantgarde uppercase tracking-ui-display-text pr-2;
+  }
+  .divider {
+    @apply divide-y divide-ui-gray-dark/40 border-y border-ui-gray-dark/40;
   }
 }

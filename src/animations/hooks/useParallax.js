@@ -5,10 +5,12 @@ import React from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export const useParallax = (containerRef, mediaRef, offset = 250) => {
+export const useParallax = (containerRef, mediaRef, offset = 300) => {
   useGSAP(() => {
     const container = containerRef.current;
     const media = mediaRef.current;
+    if (!container || !media) return;
+
     const st = ScrollTrigger.create({
       trigger: container,
       start: "top top",
