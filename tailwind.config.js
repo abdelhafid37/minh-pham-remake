@@ -18,10 +18,22 @@ export default {
       letterSpacing: {
         "ui-text": ".5em",
         "ui-display-title": ".5em",
-        "ui-display-text": "-.0em",
+        "ui-display-text": "-.001em",
       },
       lineHeight: {
         "ui-display-text": "84%",
+        "ui-text": "110%",
+      },
+      margin: {
+        "ui-margin": "16.6666667%",
+      },
+      padding: {
+        "ui-padding": "28.7vh",
+      },
+      fontSize: {
+        "ui-display-text": "8.3rem",
+        "ui-text": "4.6rem",
+        "ui-title": "",
       },
     },
   },

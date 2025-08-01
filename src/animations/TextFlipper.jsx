@@ -2,7 +2,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import React, { useRef } from "react";
 
-export const TextFlipper = ({ children }) => {
+export const TextFlipper = ({ children, isInView }) => {
   const textRef = useRef(null);
   const cloneRef = useRef(null);
   const containerRef = useRef(null);
@@ -14,16 +14,16 @@ export const TextFlipper = ({ children }) => {
     const container = containerRef.current;
     if (!text || !clone || !container) return;
 
-    const tl = gsap.timeline();
+    const onHover = () => {
+      gsap.to(text, { y: "-100%", duration: duration, ease: "power2.out" });
+      gsap.to(clone, { y: 0, duration: duration, ease: "power2.out" });
+    };
+    const onLeave = () => {
+      gsap.to(text, { y: 0, duration: duration, ease: "power2.out" });
+      gsap.to(clone, { y: "100%", duration: duration, ease: "power2.out" });
+    };
 
-    const onHover = () =>
-      tl
-        .to(text, { y: "-100%", duration: duration, ease: "power2.out" })
-        .to(clone, { y: 0, duration: duration, ease: "power2.out" }, "<");
-    const onLeave = () =>
-      tl
-        .to(text, { y: 0, duration: duration, ease: "power2.out" })
-        .to(clone, { y: "100%", duration: duration, ease: "power2.out" }, "<");
+    if (isInView) onHover();
 
     container.addEventListener("mouseover", onHover);
     container.addEventListener("mouseleave", onLeave);

@@ -1,16 +1,20 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FOOTER } from "../constants/data";
-import { soundController } from "../animations/soundController";
+import { useSound } from "../animations/hooks/useSound";
 import { MagneticField } from "../animations/magneticField";
 
-function Footer() {
+function Footer({ isStarted }) {
   const [isPlay, setIsPlay] = useState(false);
   const audioRef = useRef(null);
 
   const playRef = useRef(null);
   const pauseRef = useRef(null);
 
-  soundController(isPlay, playRef, pauseRef, audioRef);
+  useEffect(() => {
+    if (isStarted) setIsPlay(true);
+  }, [isStarted]);
+
+  useSound(isPlay, playRef, pauseRef, audioRef);
 
   return (
     <>
@@ -38,7 +42,7 @@ function Footer() {
         <div className="fixed right-[4vw] bottom-[11vh] -rotate-90 translate-x-full origin-bottom-left">
           <button
             type="button"
-            className="uppercase flex items-center justify-center gap-1"
+            className="uppercase flex items-center justify-center gap-1 focus:outline-none"
             onClick={() => setIsPlay(prev => !prev)}
           >
             <span>{FOOTER.sound.button.label}</span>
@@ -62,9 +66,7 @@ function Footer() {
       <audio
         ref={audioRef}
         src={FOOTER.sound.audio}
-        autoPlay
         loop
-        // muted
       ></audio>
     </>
   );

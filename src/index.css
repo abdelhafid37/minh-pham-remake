@@ -3,42 +3,58 @@
 @tailwind utilities;
 /* *{border: 1px solid red;} */
 
-@font-face{
+@font-face {
   font-family: "avantgarde";
   src: url("/public/fonts/ITC Avant Garde Gothic/ITC Avant Garde Gothic Medium.otf");
 }
-@font-face{
+@font-face {
   font-family: "nunito";
   src: url("/public/fonts/Nunito/Nunito-VariableFont_wght.ttf");
 }
-html{
-  font-size: .92vw;
+html {
+  font-size: 0.92vw;
+  font-weight: 600;
 }
-.loading-svg{
+.loading-svg {
   --po: 0;
   stroke-dashoffset: var(--po);
   stroke-dasharray: 829;
 }
-strong{
-  font-weight: inherit
+.parallax {
+  --parallax-offset: 0px;
+  transform: translate3d(0, var(--parallax-offset), 0);
 }
-@layer base{
-  body{
-    @apply bg-ui-black text-ui-accent font-ui-nunito select-none
+strong {
+  font-weight: inherit;
+}
+@layer base {
+  body {
+    @apply bg-ui-black text-ui-accent font-ui-nunito select-none;
   }
-  strong{
-    @apply text-ui-red ;
+  strong {
+    @apply text-ui-red;
   }
 }
-@layer utilities{
-  .full-cover{
-    @apply w-full h-full object-cover
+@layer utilities {
+  .full-cover {
+    @apply w-full h-full object-cover;
   }
-  .display-title{
-    @apply tracking-ui-display-title font-ui-avantgarde text-center uppercase mb-6
+  .display-title {
+    @apply tracking-ui-display-title font-ui-avantgarde text-center uppercase mb-6;
   }
-  .display-text{
-    @apply tracking-ui-display-text font-ui-avantgarde font-semibold text-[9rem] leading-ui-display-text uppercase text-center
+  .display-text {
+    @apply tracking-ui-display-text font-ui-avantgarde font-semibold text-ui-display-text leading-ui-display-text uppercase text-center;
   }
-  
+  .section{
+    @apply py-ui-padding
+  }
+  .wrapper{
+    @apply mx-ui-margin
+  }
+  .title{
+    @apply tracking-ui-text pb-5 uppercase text-sm font-ui-avantgarde
+  }
+  .text{
+    @apply leading-ui-text text-ui-text font-ui-avantgarde
+  }
 }

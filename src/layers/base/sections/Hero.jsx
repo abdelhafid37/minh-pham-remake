@@ -1,21 +1,25 @@
 import React, { Fragment, useRef } from "react";
 import { HERO } from "../../../constants/data";
 import { useGSAP } from "@gsap/react";
-import { SplitText } from "gsap/all";
+import { ScrollTrigger, SplitText } from "gsap/all";
 import gsap from "gsap";
+import { useParallax } from "../../../animations/hooks/useParallax";
 
-gsap.registerPlugin(SplitText);
+gsap.registerPlugin(SplitText, ScrollTrigger);
 
 function Hero({ isStarted }) {
   const textRef = useRef(null);
-  const tlRef = useRef();
+  const videoContainerRef = useRef(null);
+  const videoWrapperRef = useRef(null);
+  const videoRef = useRef(null);
 
+  const tlRef = useRef();
   useGSAP(() => {
     const text = textRef.current;
 
     if (!text) return;
 
-    tlRef.current = gsap.timeline({ paused: false });
+    tlRef.current = gsap.timeline({ paused: true });
 
     const level1 = new SplitText(text, { type: "words" });
     gsap.set(level1.words, {
@@ -43,23 +47,36 @@ function Hero({ isStarted }) {
 
     return () => gsap.killTweensOf(level1.words);
   }, []);
-
   useGSAP(() => {
-    if (isStarted) tlRef.current.play();
+    const video = videoRef.current;
+    if (isStarted) {
+      tlRef.current.play();
+      video.play();
+    }
   }, [isStarted]);
 
+  useParallax(videoContainerRef, videoWrapperRef);
+
   return (
-    <section className="relative min-h-screen w-full grid place-items-center">
-      <div className="absolute left-0 top-0 w-full h-full -z-10">
-        <video
-          src={HERO.video}
-          className="full-cover"
-          muted
-          loop
-          autoPlay
-        ></video>
+    <section
+      ref={videoContainerRef}
+      className="relative w-full overflow-hidden"
+    >
+      <div
+        ref={videoWrapperRef}
+        className="absolute left-0 top-0 w-full h-full -z-10 parallax"
+      >
+        <div className="w-full h-full">
+          <video
+            ref={videoRef}
+            src={HERO.video}
+            className="full-cover"
+            muted
+            loop
+          ></video>
+        </div>
       </div>
-      <div className="w-fit mx-auto mt-24">
+      <div className="w-fit mx-auto pt-[18.6vh] pb-[15.7vh]">
         <h6 className="display-title">{HERO.base.title}</h6>
         <h1
           ref={textRef}

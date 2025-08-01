@@ -54,3 +54,7 @@ export const HERO = {
     text: "Hiding Bad Shit Since 2009",
   },
 };
+export const ABOUT = {
+  title: "About me",
+  text: "I’m a selectively skilled product designer with strong focus on producing high quality & impactful digital experience.",
+};

@@ -2,7 +2,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import React, { useRef } from "react";
 
-export const soundController = (state, playRef, pauseRef, audioRef) => {
+export const useSound = (state, playRef, pauseRef, audioRef) => {
   const soundRef = useRef({ volume: 0 });
   const duration = 0.3;
 
